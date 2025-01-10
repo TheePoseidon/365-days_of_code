@@ -41,3 +41,21 @@ let person = {
 };
 console.log("Person:", person);
 console.log("First Name:", person.firstName);
+// Checking a condition
+let temperature = 30;
+
+if (temperature > 25) {
+    console.log("It's hot outside!");
+} else if (temperature > 15) {
+    console.log("The weather is nice.");
+} else {
+    console.log("It's cold outside!");
+}
+
+// Example with user input
+let age = 18;
+if (age >= 18) {
+    console.log("You are eligible to vote.");
+} else {
+    console.log("You are not eligible to vote.");
+}
