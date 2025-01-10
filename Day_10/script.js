@@ -72,3 +72,12 @@ while (count < 3) {
     console.log(count);
     count++;
 }
+// Number guessing game
+let secretNumber = Math.floor(Math.random() * 10) + 1; // Random number between 1 and 10
+let guess = parseInt(prompt("Guess a number between 1 and 10:"));
+
+if (guess === secretNumber) {
+    alert("Congratulations! You guessed the right number.");
+} else {
+    alert(`Sorry, the correct number was ${secretNumber}. Try again!`);
+}
