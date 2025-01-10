@@ -59,3 +59,16 @@ if (age >= 18) {
 } else {
     console.log("You are not eligible to vote.");
 }
+// For loop
+console.log("Counting to 5:");
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+
+// While loop
+let count = 0;
+console.log("Counting to 3 using while loop:");
+while (count < 3) {
+    console.log(count);
+    count++;
+}
