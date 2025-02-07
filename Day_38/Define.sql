@@ -5,3 +5,4 @@ CREATE TABLE transactions (
     timestamp TEXT,
     category TEXT
 );
+
