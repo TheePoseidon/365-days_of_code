@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Transactions Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>📊 SMS Transactions Dashboard</h1>
+    
+    <input type="text" id="search" placeholder="Search transactions..." onkeyup="filterTransactions()">
+    
+    <table id="transactions-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sender</th>
+                <th>Message</th>
+                <th>Category</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="transactions-body">
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <canvas id="transactionChart"></canvas>  <!-- Chart.js visualization -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
