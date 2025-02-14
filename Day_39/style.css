@@ -1,8 +1,8 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
-    background: #f5f5f5;
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'POPPINS', sans-serif;
+    box-sizing: border-box;
 }
 #header{
     width: 100%;
