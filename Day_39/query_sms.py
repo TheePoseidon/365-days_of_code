@@ -20,7 +20,7 @@ def fetch_transactions(limit=10):
     return transactions
 
 if __name__ == "__main__":
-    transactions = fetch_transactions(10)  # Fetch the latest 10 transactions
+    transactions = fetch_transactions(10) 
     
     print("📌 Latest Transactions:")
     for tx in transactions:
