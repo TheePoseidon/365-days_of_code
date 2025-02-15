@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="i love porsche.jpeg" class="logo">
-            </nav>
-        </div>   
     <h1>📊 SMS Transactions Dashboard</h1>
 
-    <input type="text" id="search" placeholder="Search transactions..." onkeyup="filterTransactions()">
+    <div>
+        <input type="text" id="search" placeholder="Search transactions..." onkeyup="searchTransactions()">
+        <select id="filter-category" onchange="filterByCategory()">
+            <option value="">All Categories</option>
+            <option value="Incoming Money">Incoming Money</option>
+            <option value="Payments to Code Holders">Payments to Code Holders</option>
+            <option value="Transfers to Mobile Numbers">Transfers to Mobile Numbers</option>
+            <option value="Bank Deposits">Bank Deposits</option>
+            <option value="Airtime Bill Payments">Airtime Bill Payments</option>
+        </select>
+    </div>
 
     <table id="transactions-table">
         <thead>
@@ -23,6 +27,7 @@
                 <th>ID</th>
                 <th>Sender</th>
                 <th>Message</th>
+                <th>Amount</th>
                 <th>Category</th>
                 <th>Timestamp</th>
             </tr>
@@ -32,9 +37,12 @@
         </tbody>
     </table>
 
-    <canvas id="transactionChart"></canvas>  <!-- Chart.js visualization -->
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div>
+        <button onclick="prevPage()">⬅ Previous</button>
+        <span id="page-info">Page 1</span>
+        <button onclick="nextPage()">Next ➡</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
+
