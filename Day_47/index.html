@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Transactions Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Momo transactions Analysis</h1>
+    <h2>Transactions Overview</h2>
+<canvas id="barChart"></canvas>
+<canvas id="pieChart"></canvas>
+<canvas id="lineChart"></canvas>
+
+
+    <div>
+        <input type="text" id="search" placeholder="Search transactions..." onkeyup="searchTransactions()">
+        <select id="filter-category" onchange="filterByCategory()">
+            <option value="">All Categories</option>
+            <option value="Incoming Money">Incoming Money</option>
+            <option value="Payments to Code Holders">Payments to Code Holders</option>
+            <option value="Transfers to Mobile Numbers">Transfers to Mobile Numbers</option>
+            <option value="Bank Deposits">Bank Deposits</option>
+            <option value="Airtime Bill Payments">Airtime Bill Payments</option>
+        </select>
+    </div>
+
+    <table id="transactions-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sender</th>
+                <th>Message</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="transactions-body">
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <div>
+        <button onclick="prevPage()">⬅ Previous</button>
+        <span id="page-info">Page 1</span>
+        <button onclick="nextPage()">Next ➡</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
