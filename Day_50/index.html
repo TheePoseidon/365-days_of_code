@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTN MoMo Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 MTN MoMo Dashboard</h1>
+        </header>
+        
+        <div class="filters">
+            <label for="transaction-type">Transaction Type:</label>
+            <select id="transaction-type">
+                <option value="">All</option>
+                <option value="deposit">Deposit</option>
+                <option value="withdrawal">Withdrawal</option>
+            </select>
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date">
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date">
+
+            <button id="filter-btn">Apply Filters</button>
+            <button id="download-report">Download Report</button>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Message</th>
+                    <th>Type</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="sms-table-body">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+
+        <div class="charts">
+            <canvas id="barChart"></canvas>
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+</body>
+</html>
