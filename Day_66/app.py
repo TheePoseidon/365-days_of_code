@@ -2,6 +2,12 @@ import json
 from flask import Flask, redirect, url_for, session
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from authlib.integrations.flask_client import OAuth
+from flask_session import Session
+
+# Flask Session Configurations
+app.config["SESSION_TYPE"] = "filesystem"
+app.config["SESSION_PERMANENT"] = False
+Session(app)
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
