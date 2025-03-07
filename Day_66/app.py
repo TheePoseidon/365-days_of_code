@@ -3,6 +3,7 @@ from flask import Flask, redirect, url_for, session
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from authlib.integrations.flask_client import OAuth
 from flask_session import Session
+from flask import render_template
 
 # Flask Session Configurations
 app.config["SESSION_TYPE"] = "filesystem"
@@ -43,6 +44,17 @@ users = {}  # Temporary storage for users (use a database in production)
 @login_manager.user_loader
 def load_user(user_id):
     return users.get(user_id)
+
+
+@app.route("/")
+def home():
+    return render_template("home.html", name=current_user.name if current_user.is_authenticated else None)
+
+@app.route("/dashboard")
+
+@login_required
+def dashboard():
+    return render_template("dashboard.html")
 
 @app.route("/")
 def home():
