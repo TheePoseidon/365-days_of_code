@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, {{ current_user.name }}!</h2>
+    <p>Email: {{ current_user.email }}</p>
+    <img src="{{ current_user.profile_pic }}" width="100" />
+    <br><a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
