@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2>Student Portal</h2>
+            <nav>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Notifications</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <h1>Welcome, Student</h1>
+            <section class="courses">
+                <h2>Your Courses</h2>
+                <ul id="course-list"></ul>
+            </section>
+            
+            <section class="notifications">
+                <h2>Notifications</h2>
+                <ul id="notification-list"></ul>
+            </section>
+        </main>
+        
+        <div class="chatbot-container">
+            <button id="chat-toggle">Chat</button>
+            <div class="chat-window">
+                <div id="chat-messages"></div>
+                <input type="text" id="chat-input" placeholder="Ask me anything...">
+                <button id="send-chat">Send</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
