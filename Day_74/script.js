@@ -193,18 +193,35 @@ function initializeSidebar() {
     const sidebarToggle = document.getElementById("sidebar-toggle");
     const sidebar = document.querySelector(".sidebar");
     const dashboardContainer = document.querySelector(".dashboard-container");
+    const floatingProfile = document.querySelector(".floating-profile");
     
     // Load sidebar state from localStorage
     const isSidebarCollapsed = localStorage.getItem("sidebarCollapsed") === "true";
     if (isSidebarCollapsed) {
         sidebar.classList.add("collapsed");
         dashboardContainer.classList.add("sidebar-collapsed");
+        floatingProfile.classList.add("expanded");
     }
     
     sidebarToggle.addEventListener("click", () => {
         sidebar.classList.toggle("collapsed");
         dashboardContainer.classList.toggle("sidebar-collapsed");
+        floatingProfile.classList.toggle("expanded");
+        
         // Save sidebar state to localStorage
         localStorage.setItem("sidebarCollapsed", sidebar.classList.contains("collapsed"));
+    });
+
+    // Close sidebar when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!sidebar.contains(e.target) && 
+            !sidebarToggle.contains(e.target) && 
+            !floatingProfile.contains(e.target) && 
+            !sidebar.classList.contains("collapsed")) {
+            sidebar.classList.add("collapsed");
+            dashboardContainer.classList.add("sidebar-collapsed");
+            floatingProfile.classList.add("expanded");
+            localStorage.setItem("sidebarCollapsed", "true");
+        }
     });
 }

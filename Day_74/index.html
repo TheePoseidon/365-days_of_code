@@ -9,15 +9,19 @@
 </head>
 <body>
     <div class="dashboard-container">
-        <aside class="sidebar">
-            <button id="sidebar-toggle" class="sidebar-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="profile-section">
-                <img src="assets/avatar.jpg" alt="Student Avatar" class="profile-avatar">
+        <div class="floating-profile">
+            <img src="assets/avatar.jpg" alt="Student Avatar" class="profile-avatar">
+            <div class="profile-details">
                 <h3 class="profile-name">John Doe</h3>
                 <p class="profile-role">Computer Science</p>
             </div>
+        </div>
+
+        <button id="sidebar-toggle" class="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <aside class="sidebar">
             <nav>
                 <ul>
                     <li><a href="#" class="active"><i class="fas fa-home"></i> <span class="nav-text">Dashboard</span></a></li>
