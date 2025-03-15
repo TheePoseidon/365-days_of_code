@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeChatbot();
     loadDashboardData();
     setupEventListeners();
+    initializeSidebar();
 });
 
 // Chatbot functionality
@@ -185,4 +186,25 @@ function setupEventListeners() {
             console.log("Searching for:", e.target.value);
         });
     }
+}
+
+// Sidebar functionality
+function initializeSidebar() {
+    const sidebarToggle = document.getElementById("sidebar-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    const dashboardContainer = document.querySelector(".dashboard-container");
+    
+    // Load sidebar state from localStorage
+    const isSidebarCollapsed = localStorage.getItem("sidebarCollapsed") === "true";
+    if (isSidebarCollapsed) {
+        sidebar.classList.add("collapsed");
+        dashboardContainer.classList.add("sidebar-collapsed");
+    }
+    
+    sidebarToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+        dashboardContainer.classList.toggle("sidebar-collapsed");
+        // Save sidebar state to localStorage
+        localStorage.setItem("sidebarCollapsed", sidebar.classList.contains("collapsed"));
+    });
 }

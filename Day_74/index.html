@@ -10,18 +10,21 @@
 <body>
     <div class="dashboard-container">
         <aside class="sidebar">
+            <button id="sidebar-toggle" class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="profile-section">
-                <img src="assets/avatar.png" alt="Student Avatar" class="profile-avatar">
+                <img src="assets/avatar.jpg" alt="Student Avatar" class="profile-avatar">
                 <h3 class="profile-name">John Doe</h3>
                 <p class="profile-role">Computer Science</p>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-                    <li><a href="#"><i class="fas fa-book"></i> Courses</a></li>
-                    <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
-                    <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> <span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> <span class="nav-text">Courses</span></a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i> <span class="nav-text">Notifications</span></a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> <span class="nav-text">Profile</span></a></li>
+                    <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> <span class="nav-text">Logout</span></a></li>
                 </ul>
             </nav>
         </aside>
