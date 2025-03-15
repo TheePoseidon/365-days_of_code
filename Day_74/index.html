@@ -5,41 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Portal Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="dashboard-container">
         <aside class="sidebar">
-            <h2>Student Portal</h2>
+            <div class="profile-section">
+                <img src="assets/avatar.png" alt="Student Avatar" class="profile-avatar">
+                <h3 class="profile-name">John Doe</h3>
+                <p class="profile-role">Computer Science</p>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Courses</a></li>
-                    <li><a href="#">Notifications</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#" id="logout">Logout</a></li>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Courses</a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
             </nav>
         </aside>
         
         <main class="main-content">
-            <h1>Welcome, Student</h1>
+            <header class="dashboard-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search courses...">
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <section class="welcome-banner">
+                <h1>Welcome back, John!</h1>
+                <p>Track your progress and stay updated with your courses</p>
+            </section>
+            
             <section class="courses">
-                <h2>Your Courses</h2>
-                <ul id="course-list"></ul>
+                <div class="section-header">
+                    <h2>Your Courses</h2>
+                    <button class="view-all">View All</button>
+                </div>
+                <div class="course-grid" id="course-list">
+                    <!-- Course cards will be added dynamically -->
+                </div>
             </section>
             
             <section class="notifications">
-                <h2>Notifications</h2>
-                <ul id="notification-list"></ul>
+                <div class="section-header">
+                    <h2>Recent Notifications</h2>
+                    <button class="view-all">View All</button>
+                </div>
+                <div class="notification-list" id="notification-list">
+                    <!-- Notifications will be added dynamically -->
+                </div>
             </section>
         </main>
         
         <div class="chatbot-container">
-            <button id="chat-toggle">Chat</button>
+            <button id="chat-toggle" class="chat-toggle">
+                <i class="fas fa-comments"></i>
+                <span>AI Assistant</span>
+            </button>
             <div class="chat-window">
-                <div id="chat-messages"></div>
-                <input type="text" id="chat-input" placeholder="Ask me anything...">
-                <button id="send-chat">Send</button>
+                <div class="chat-header">
+                    <img src="assets/ai-avatar.png" alt="AI Assistant" class="ai-avatar">
+                    <h3>AI Assistant</h3>
+                    <button class="minimize-chat">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Ask me anything...">
+                    <button id="send-chat">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
