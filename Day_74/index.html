@@ -6,6 +6,7 @@
     <title>Student Portal Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
@@ -80,10 +81,114 @@
                         <button class="filter-btn">In Progress</button>
                         <button class="filter-btn">Completed</button>
                     </div>
-                    <button class="view-all">View All</button>
+                    <div class="course-actions">
+                        <div class="course-search">
+                            <input type="text" placeholder="Search courses..." id="course-search">
+                        </div>
+                        <button class="view-all">View All</button>
+                    </div>
                 </div>
                 <div class="course-grid" id="course-list">
                     <!-- Course cards will be added dynamically -->
+                </div>
+
+                <!-- Course Details Modal -->
+                <div id="course-details-modal" class="modal-overlay" style="display: none;">
+                    <div class="modal course-modal">
+                        <div class="modal-header">
+                            <h2 id="course-modal-title"></h2>
+                            <button class="modal-close">&times;</button>
+                        </div>
+                        <div class="course-modal-content">
+                            <div class="course-tabs">
+                                <button class="tab-btn active" data-tab="overview">Overview</button>
+                                <button class="tab-btn" data-tab="topics">Topics</button>
+                                <button class="tab-btn" data-tab="assignments">Assignments</button>
+                                <button class="tab-btn" data-tab="grades">Grades</button>
+                            </div>
+
+                            <!-- Overview Tab -->
+                            <div class="tab-content active" id="overview-tab">
+                                <div class="course-info">
+                                    <div class="info-group">
+                                        <h3>Course Details</h3>
+                                        <p><strong>Code:</strong> <span id="course-code"></span></p>
+                                        <p><strong>Instructor:</strong> <span id="course-instructor"></span></p>
+                                        <p><strong>Credits:</strong> <span id="course-credits"></span></p>
+                                        <p><strong>Semester:</strong> <span id="course-semester"></span></p>
+                                    </div>
+                                    <div class="info-group">
+                                        <h3>Progress</h3>
+                                        <div class="progress-circle">
+                                            <div class="progress-value">0%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="course-description">
+                                    <h3>Description</h3>
+                                    <p id="course-description"></p>
+                                </div>
+                            </div>
+
+                            <!-- Topics Tab -->
+                            <div class="tab-content" id="topics-tab">
+                                <div class="topics-list">
+                                    <!-- Topics will be added dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Assignments Tab -->
+                            <div class="tab-content" id="assignments-tab">
+                                <div class="assignments-header">
+                                    <h3>Course Assignments</h3>
+                                    <div class="assignment-filters">
+                                        <button class="filter-btn active">All</button>
+                                        <button class="filter-btn">Pending</button>
+                                        <button class="filter-btn">Submitted</button>
+                                        <button class="filter-btn">Graded</button>
+                                    </div>
+                                </div>
+                                <div class="assignments-list">
+                                    <!-- Assignments will be added dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Grades Tab -->
+                            <div class="tab-content" id="grades-tab">
+                                <div class="grades-summary">
+                                    <div class="overall-grade">
+                                        <h3>Overall Grade</h3>
+                                        <div class="grade-circle">
+                                            <span class="grade-value">--</span>
+                                        </div>
+                                    </div>
+                                    <div class="grade-distribution">
+                                        <h3>Grade Distribution</h3>
+                                        <div class="grade-chart">
+                                            <canvas id="grade-chart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grades-list">
+                                    <h3>Assignment Grades</h3>
+                                    <table class="grades-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Assignment</th>
+                                                <th>Due Date</th>
+                                                <th>Grade</th>
+                                                <th>Weight</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="grades-table-body">
+                                            <!-- Grades will be added dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
