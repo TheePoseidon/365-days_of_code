@@ -24,10 +24,10 @@
         <aside class="sidebar">
             <nav>
                 <ul>
-                    <li><a href="#" class="active"><i class="fas fa-home"></i> <span class="nav-text">Dashboard</span></a></li>
-                    <li><a href="#"><i class="fas fa-book"></i> <span class="nav-text">Courses</span></a></li>
-                    <li><a href="#"><i class="fas fa-bell"></i> <span class="nav-text">Notifications</span></a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> <span class="nav-text">Profile</span></a></li>
+                    <li><a href="#dashboard" class="active" data-section="dashboard"><i class="fas fa-home"></i> <span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="#courses" data-section="courses"><i class="fas fa-book"></i> <span class="nav-text">Courses</span></a></li>
+                    <li><a href="#notifications" data-section="notifications"><i class="fas fa-bell"></i> <span class="nav-text">Notifications</span></a></li>
+                    <li><a href="#profile" data-section="profile"><i class="fas fa-user"></i> <span class="nav-text">Profile</span></a></li>
                     <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> <span class="nav-text">Logout</span></a></li>
                 </ul>
             </nav>
@@ -37,7 +37,7 @@
             <header class="dashboard-header">
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search courses...">
+                    <input type="text" placeholder="Search...">
                 </div>
                 <div class="header-actions">
                     <button class="notification-btn">
@@ -47,28 +47,134 @@
                 </div>
             </header>
 
-            <section class="welcome-banner">
-                <h1>Welcome back, John!</h1>
-                <p>Track your progress and stay updated with your courses</p>
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="welcome-banner">
+                    <h1>Welcome back, John!</h1>
+                    <p>Here's what's happening today</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h2>Recent Notifications</h2>
+                        <div class="notification-list" id="notification-list">
+                            <!-- Notifications will be added dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h2>Upcoming Events</h2>
+                        <div class="events-list" id="events-list">
+                            <!-- Events will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
             </section>
-            
-            <section class="courses">
+
+            <!-- Courses Section -->
+            <section id="courses" class="content-section">
+                <h1>Your Courses</h1>
                 <div class="section-header">
-                    <h2>Your Courses</h2>
+                    <div class="filters">
+                        <button class="filter-btn active">All Courses</button>
+                        <button class="filter-btn">In Progress</button>
+                        <button class="filter-btn">Completed</button>
+                    </div>
                     <button class="view-all">View All</button>
                 </div>
                 <div class="course-grid" id="course-list">
                     <!-- Course cards will be added dynamically -->
                 </div>
             </section>
-            
-            <section class="notifications">
-                <div class="section-header">
-                    <h2>Recent Notifications</h2>
-                    <button class="view-all">View All</button>
+
+            <!-- Notifications Section -->
+            <section id="notifications" class="content-section">
+                <h1>All Notifications</h1>
+                <div class="notifications-container">
+                    <div class="notification-filters">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">Unread</button>
+                        <button class="filter-btn">Important</button>
+                    </div>
+                    <div class="full-notification-list">
+                        <!-- All notifications will be added dynamically -->
+                    </div>
                 </div>
-                <div class="notification-list" id="notification-list">
-                    <!-- Notifications will be added dynamically -->
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="content-section">
+                <h1>Profile Settings</h1>
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-picture-container">
+                            <img src="assets/avatar.jpg" alt="Profile Picture" class="large-avatar" id="profile-picture">
+                            <div class="profile-picture-overlay">
+                                <button class="upload-picture-btn" id="upload-picture-btn">
+                                    <i class="fas fa-camera"></i>
+                                    Change Picture
+                                </button>
+                            </div>
+                            <input type="file" id="picture-upload" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="profile-info">
+                            <h2>John Doe</h2>
+                            <p>Computer Science Student</p>
+                        </div>
+                    </div>
+                    <div class="profile-details-grid">
+                        <div class="profile-card">
+                            <h3>Personal Information</h3>
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" value="John Doe" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" value="john.doe@example.com" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Student ID</label>
+                                    <input type="text" value="CS2023001" disabled>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="profile-card">
+                            <h3>Academic Information</h3>
+                            <div class="academic-info">
+                                <p><strong>Program:</strong> Bachelor of Science in Computer Science</p>
+                                <p><strong>Year Level:</strong> 3rd Year</p>
+                                <p><strong>GPA:</strong> 3.8</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Section -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Experience</h3>
+                            <button class="add-btn" id="add-experience-btn">
+                                <i class="fas fa-plus"></i> Add Experience
+                            </button>
+                        </div>
+                        <div class="experience-list" id="experience-list">
+                            <!-- Experience items will be added dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Certifications Section -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Certifications</h3>
+                            <button class="add-btn" id="add-certification-btn">
+                                <i class="fas fa-plus"></i> Add Certification
+                            </button>
+                        </div>
+                        <div class="certification-list" id="certification-list">
+                            <!-- Certification items will be added dynamically -->
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>

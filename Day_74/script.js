@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loadDashboardData();
     setupEventListeners();
     initializeSidebar();
+    initializeNavigation();
 });
 
 // Chatbot functionality
@@ -78,11 +79,62 @@ function initializeChatbot() {
     }
 }
 
+// Navigation functionality
+function initializeNavigation() {
+    const navLinks = document.querySelectorAll('.sidebar a[data-section]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetSection = link.getAttribute('data-section');
+            
+            // Update active states
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.sidebar a').forEach(a => {
+                a.classList.remove('active');
+            });
+            
+            // Show target section
+            document.getElementById(targetSection).classList.add('active');
+            link.classList.add('active');
+
+            // Load section specific data
+            loadSectionData(targetSection);
+
+            // Close sidebar on mobile after navigation
+            if (window.innerWidth < 768) {
+                document.querySelector('.sidebar').classList.add('collapsed');
+                document.querySelector('.dashboard-container').classList.add('sidebar-collapsed');
+            }
+        });
+    });
+}
+
+// Load section specific data
+function loadSectionData(section) {
+    switch(section) {
+        case 'dashboard':
+            loadNotifications();
+            loadEvents();
+            break;
+        case 'courses':
+            loadCourses();
+            break;
+        case 'notifications':
+            loadAllNotifications();
+            break;
+        case 'profile':
+            updateUserProfile();
+            break;
+    }
+}
+
 // Dashboard functionality
 function loadDashboardData() {
-    loadCourses();
     loadNotifications();
-    updateUserProfile();
+    loadEvents();
 }
 
 function loadCourses() {
@@ -147,6 +199,94 @@ function loadNotifications() {
     notifications.forEach(notification => {
         const notificationItem = document.createElement("div");
         notificationItem.className = "notification-item";
+        notificationItem.innerHTML = `
+            <h4>${notification.title}</h4>
+            <p>${notification.message}</p>
+            <span class="notification-time">${notification.time}</span>
+        `;
+        notificationList.appendChild(notificationItem);
+    });
+}
+
+function loadEvents() {
+    const eventsList = document.getElementById('events-list');
+    if (!eventsList) return;
+
+    const events = [
+        {
+            title: "Project Presentation",
+            date: "2024-03-15",
+            time: "10:00 AM",
+            course: "Web Development"
+        },
+        {
+            title: "Midterm Exam",
+            date: "2024-03-20",
+            time: "2:00 PM",
+            course: "Data Structures"
+        },
+        {
+            title: "Group Meeting",
+            date: "2024-03-16",
+            time: "3:30 PM",
+            course: "Software Engineering"
+        }
+    ];
+
+    eventsList.innerHTML = '';
+    events.forEach(event => {
+        const date = new Date(event.date);
+        const eventItem = document.createElement('div');
+        eventItem.className = 'event-item';
+        eventItem.innerHTML = `
+            <div class="event-date">
+                <div class="date">${date.getDate()}</div>
+                <div class="month">${date.toLocaleString('default', { month: 'short' })}</div>
+            </div>
+            <div class="event-details">
+                <h4>${event.title}</h4>
+                <p>${event.time} - ${event.course}</p>
+            </div>
+        `;
+        eventsList.appendChild(eventItem);
+    });
+}
+
+function loadAllNotifications() {
+    const notificationList = document.querySelector('.full-notification-list');
+    if (!notificationList) return;
+
+    const notifications = [
+        {
+            title: "Assignment Due",
+            message: "Web Development project due in 2 days",
+            time: "2 hours ago",
+            type: "urgent"
+        },
+        {
+            title: "New Course Material",
+            message: "New lectures uploaded in CS101",
+            time: "1 day ago",
+            type: "info"
+        },
+        {
+            title: "Grade Posted",
+            message: "Your Data Structures quiz has been graded",
+            time: "2 days ago",
+            type: "success"
+        },
+        {
+            title: "System Maintenance",
+            message: "Portal will be down for maintenance on Sunday",
+            time: "3 days ago",
+            type: "warning"
+        }
+    ];
+
+    notificationList.innerHTML = '';
+    notifications.forEach(notification => {
+        const notificationItem = document.createElement('div');
+        notificationItem.className = `notification-item ${notification.type}`;
         notificationItem.innerHTML = `
             <h4>${notification.title}</h4>
             <p>${notification.message}</p>
