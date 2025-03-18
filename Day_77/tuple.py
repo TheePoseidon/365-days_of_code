@@ -1,0 +1,7 @@
+letters = ('a', 'b', 'c', 'd', 'e')
+print(letters)
+# print(letters[0])
+# print(letters[1:3])
+# print(letters[2])
+# print(letters[3])
+# print(letters[4])
