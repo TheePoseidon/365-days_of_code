@@ -1,0 +1,621 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --sidebar-color: #ffffff;
+    --sidebar-width: 250px;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --collapsed-width: 60px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--sidebar-color);
+    padding: 2rem 1rem;
+    position: fixed;
+    box-shadow: var(--card-shadow);
+    transition: width var(--transition-speed) ease;
+}
+
+.sidebar.collapsed {
+    width: var(--collapsed-width);
+}
+
+.sidebar h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a i {
+    margin-right: 1rem;
+    width: 20px;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+}
+
+.collapse-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.sidebar.collapsed h2,
+.sidebar.collapsed .sidebar ul li a span {
+    display: none;
+}
+
+.sidebar.collapsed .sidebar ul li a i {
+    margin-right: 0;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    padding: 2rem;
+    transition: margin-left var(--transition-speed) ease;
+}
+
+.main-content.expanded {
+    margin-left: var(--collapsed-width);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    position: relative;
+    width: 300px;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.dashboard-card {
+    background: var(--sidebar-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.dashboard-card h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Course List */
+.course-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.course {
+    background: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.course:hover {
+    transform: translateY(-2px);
+}
+
+/* Exam List */
+.exam-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.exam-date {
+    min-width: 60px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.exam-details {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.exam-status {
+    padding: 0.5rem;
+    background: #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Notifications */
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.notification-item {
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.notification-time {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+/* Chat Feature */
+.chatbot-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.chat-toggle {
+    background-color: var(--primary-color);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-toggle i {
+    font-size: 1.5rem;
+}
+
+.chat-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+    display: none;
+    flex-direction: column;
+}
+
+.chat-window.show {
+    display: flex;
+}
+
+.chat-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem 1rem 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.ai-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.chat-header h3 {
+    flex: 1;
+    margin: 0;
+}
+
+.minimize-chat {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    max-width: 80%;
+}
+
+.user-message {
+    background-color: var(--primary-color);
+    color: white;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #f1f5f9;
+}
+
+.chat-input-area {
+    padding: 1rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.chat-input-area button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    cursor: pointer;
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.content-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        padding: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Course Cards */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.course-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.course-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.course-header i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.course-progress {
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--secondary-color);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.course-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.course-btn:hover {
+    background: var(--secondary-color);
+}
+
+/* Exam Board */
+.exam-filters {
+    margin-bottom: 1.5rem;
+}
+
+.exam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.exam-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+}
+
+.exam-date {
+    text-align: center;
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+}
+
+.exam-date .day {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.exam-info {
+    flex: 1;
+}
+
+.exam-info p {
+    margin-top: 0.5rem;
+    color: #64748b;
+}
+
+.exam-info i {
+    margin-right: 0.5rem;
+}
+
+/* Library */
+.library-search {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.library-search input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.resource-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+}
+
+.resource-type {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.resource-type.pdf {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.resource-type.video {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+/* Finance Section */
+.finance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.finance-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+}
+
+.finance-card .amount {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: var(--primary-color);
+}
+
+.transactions {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.transaction-amount {
+    font-weight: bold;
+}
+
+.transaction-amount.debit {
+    color: #dc2626;
+}
+
+.transaction-amount.credit {
+    color: #059669;
+}
+
+/* Settings Section */
+.settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.settings-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+}
+
+.settings-card form {
+    margin-top: 1.5rem;
+}
+
+.save-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.save-btn:hover {
+    background: var(--secondary-color);
+} 
