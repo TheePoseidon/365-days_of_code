@@ -1,1 +1,121 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Student Portal</h2>
+        <ul>
+            <li><a href="#" data-section="dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="#" data-section="courses"><i class="fas fa-book"></i> Enrolled Courses</a></li>
+            <li><a href="#" data-section="exam-board"><i class="fas fa-clipboard"></i> Exam Board</a></li>
+            <li><a href="#" data-section="library"><i class="fas fa-book-reader"></i> Library</a></li>
+            <li><a href="#" data-section="finance"><i class="fas fa-wallet"></i> Finance</a></li>
+            <li><a href="#" data-section="notifications"><i class="fas fa-bell"></i> Notifications</a></li>
+            <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> Account Settings</a></li>
+            <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header class="dashboard-header">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="user-profile">
+                <span class="user-name">Welcome, Student!</span>
+                <img src="assets/profile-placeholder.png" alt="Profile" class="profile-pic">
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="welcome-banner">
+                <h1>Welcome back!</h1>
+                <p>Here's what's happening today</p>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h2>Enrolled Courses</h2>
+                    <div class="course-list">
+                        <div class="course">Graphic Fundamentals</div>
+                        <div class="course">Advanced Web Design</div>
+                        <div class="course">User Experience Research</div>
+                        <div class="course">3D Animation Techniques</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h2>Recent Notifications</h2>
+                    <div class="notification-list" id="notification-list">
+                        <!-- Notifications will be added dynamically -->
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h2>Upcoming Exams</h2>
+                    <div class="exam-list">
+                        <div class="exam-item">
+                            <div class="exam-date">Mar 20</div>
+                            <div class="exam-details">
+                                <h4>Graphic Fundamentals</h4>
+                                <p>10:00 AM - Computer Lab A</p>
+                            </div>
+                            <div class="exam-status">Upcoming</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections will be added dynamically -->
+
+        <!-- Notifications Section -->
+        <section id="notifications" class="content-section">
+            <h1>All Notifications</h1>
+            <div class="notifications-container">
+                <div class="notification-filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Unread</button>
+                    <button class="filter-btn">Important</button>
+                </div>
+                <div class="full-notification-list">
+                    <!-- Notifications will be added dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Feature -->
+        <div class="chatbot-container">
+            <button id="chat-toggle" class="chat-toggle">
+                <i class="fas fa-comments"></i>
+            </button>
+            <div class="chat-window">
+                <div class="chat-header">
+                    <img src="assets/ai-avatar.png" alt="AI Assistant" class="ai-avatar">
+                    <h3>AI Assistant</h3>
+                    <button class="minimize-chat">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Ask me anything...">
+                    <button id="send-chat">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
