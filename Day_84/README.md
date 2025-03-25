@@ -1,3 +1,8 @@
+# Day 84 innit "PLP - Python"
+# 25th MAR 2025
+# Just Do It
+
+
 **👨‍💻 Full-Stack Development | Cybersecurity | Cloud Computing**  
 
 Hi there! 👋 I'm a passionate student software engineer from **Kenya**, currently studying at the **African Leadership University (ALU)** in **Rwanda**.  
