@@ -1,0 +1,5 @@
+What is a state in flutter? Is widget data that makes any changes in UI.
+
+A setState() is used by statefuk widgets to notify the widget of changes that were made.
+
+
