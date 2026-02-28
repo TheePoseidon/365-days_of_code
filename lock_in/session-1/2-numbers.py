@@ -3,4 +3,4 @@ b = input("Enter 2nd number: ")
 
 total = int(a) + int(b)
 
-print(total)
+print("The sume is: ", total)
