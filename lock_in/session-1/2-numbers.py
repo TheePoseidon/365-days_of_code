@@ -1,6 +1,6 @@
-int a = input("Enter 1st number: ")
-int b = input("Enter 2nd number: ")
+a = input("Enter 1st number: ")
+b = input("Enter 2nd number: ")
 
-total = int(a + b)
+total = int(a) + int(b)
 
 print(total)
