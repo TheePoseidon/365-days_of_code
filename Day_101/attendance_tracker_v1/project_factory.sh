@@ -42,11 +42,11 @@ cleanup() {
 
                                                     # ---- Default Config ----
                                                     cat <<EOF > "$PROJECT_DIR/Helpers/config.json"
-                                                    {
-                                                        "warning_threshold": 75,
-                                                            "failure_threshold": 50
-                                                            }
-                                                            EOF
+{
+    "warning_threshold": 75,
+    "failure_threshold": 50
+}
+EOF
 
                                                             # ---- Prompt for Threshold Update ----
                                                             read -p "Do you want to update attendance thresholds? (y/n): " choice
