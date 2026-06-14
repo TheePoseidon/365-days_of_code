@@ -5,7 +5,7 @@ int main() {
 	float cost_per_item = 24.60;
 	int items_purchased = 27;
 	float total_purchase_cost = cost_per_item * items_purchased;
-	float items_remaining = items - items_purchased;
+	int items_remaining = items - items_purchased;
 	char currency = '$';
 
 	printf("Number of items: %d\n", items);
