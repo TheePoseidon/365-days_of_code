@@ -1,11 +1,8 @@
 #include<stdio.h>
 
-main:{
-     int a = 50
-     int b = 34
+int main() {
+	int a = 10;
+	int b = 92;
 
-     printf( a + b )
-     printf( a>>b )
-
-     
-     }
+	printf( a + b );
+}
