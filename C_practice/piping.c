@@ -37,7 +37,7 @@ void* writer(void* arg) {
 	while (stage < 2) {
 		usleep(100);
 	}
-	printf("Writer: Final output: %s\n", data;
+	printf("Writer: Final output: %s\n", data);
 	return NULL;
 
 }
